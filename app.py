@@ -1,3 +1,23 @@
+import streamlit as st
+import openai
+import json
+import requests
+from transformers import GPT2Tokenizer
+from newspaper import Article
+from bs4 import BeautifulSoup
+
+# Create a sidebar for the user to input their API key
+api_key = st.sidebar.text_input("Enter your GPT API key", value="", type="password")
+
+# Check if the api_key is provided
+if not api_key:
+    st.write("Please enter your GPT API key")
+    st.stop()
+
+# Define your OpenAI GPT-3 API key
+openai.api_key = api_key
+
+# Rest of your code here
 import openai
 import json
 import requests
